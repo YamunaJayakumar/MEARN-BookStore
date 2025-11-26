@@ -24,12 +24,13 @@ function Home() {
           </div>
         </div>
         {/* new arrival */}
-        <section className="md: px-40 p-5 my-5 flex items-center justify-center flex-col">
+        <section className="  md:px-40 p-5 my-5 flex items-center justify-center flex-col mt-10">
           <h1 className="text-3xl font-bold">NEW ARRIVALS</h1>
           <h2 className="text-2xl ">Explore Our Latest Collections</h2>
-          {/* book rowand col */}
-          <div className="md:grid grid-cols-4 w-full mt-10">
-            <div className="shadow rounded p-3 mx-4">
+          
+          <div className=" md:grid grid-cols-4 w-full mt-10 ">
+            {/* book rowand col */}
+            <div className="shadow rounded p-3 mx-4 flex flex-col items-center mb-3 md:mb-0">
               <img width={'300px'} height={'300px'} src="https://m.media-amazon.com/images/I/91ZUvoslh1L._UF1000,1000_QL80_.jpg" alt="book" />
               <div className="flex  flex-col mt-4 justify-center items-center">
                 <h3 className='text-blue-300 font-bold text-lg'>Autor</h3>
@@ -39,7 +40,7 @@ function Home() {
               
             </div>
             {/* duplicate row and cols */}
-            <div className="shadow rounded p-3 mx-4">
+            <div className="shadow rounded p-3 mx-4 flex flex-col items-center mb-3 md:mb-0">
               <img width={'300px'} height={'300px'} src="https://m.media-amazon.com/images/I/91ZUvoslh1L._UF1000,1000_QL80_.jpg" alt="book" />
               <div className="flex  flex-col mt-4 justify-center items-center">
                 <h3 className='text-blue-300 font-bold text-lg'>Autor</h3>
@@ -48,7 +49,7 @@ function Home() {
               </div>
               
             </div>
-            <div className="shadow rounded p-3 mx-4">
+            <div className="shadow rounded p-3 mx-4 flex flex-col items-center mb-3 md:mb-0 ">
               <img width={'300px'} height={'300px'} src="https://m.media-amazon.com/images/I/91ZUvoslh1L._UF1000,1000_QL80_.jpg" alt="book" />
               <div className="flex  flex-col mt-4 justify-center items-center">
                 <h3 className='text-blue-300 font-bold text-lg'>Autor</h3>
@@ -56,7 +57,7 @@ function Home() {
                 <h4>$ price</h4>
               </div>
             </div>
-            <div className="shadow rounded p-3 mx-4">
+            <div className="shadow rounded p-3 mx-4 flex flex-col items-center mb-3 md:mb-0 ">
               <img width={'300px'} height={'300px'} src="https://m.media-amazon.com/images/I/91ZUvoslh1L._UF1000,1000_QL80_.jpg" alt="book" />
               <div className="flex  flex-col mt-4 justify-center items-center">
                 <h3 className='text-blue-300 font-bold text-lg'>Autor</h3>
@@ -71,7 +72,7 @@ function Home() {
           </div>
         </section>
         {/* author */}
-        <section className=" md:p-5 px-40 my-5 md:grid grid-cols-2 ">
+        <section className=" md:grid grid-cols-2 items-center gap-10 md:px-40 p-5 my-5">
             {/* autorcontetnt */}
             <div className='text-center '>
               <h1 className="text-3xl font-bold">FEATURED AUTOR</h1>
