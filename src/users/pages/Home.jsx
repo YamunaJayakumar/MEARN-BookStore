@@ -47,7 +47,6 @@ function Home() {
                 <h4 className="text-lg">title</h4>
                 <h4>$ price</h4>
               </div>
-              
             </div>
             <div className="shadow rounded p-3 mx-4 flex flex-col items-center mb-3 md:mb-0 ">
               <img width={'300px'} height={'300px'} src="https://m.media-amazon.com/images/I/91ZUvoslh1L._UF1000,1000_QL80_.jpg" alt="book" />
@@ -68,7 +67,7 @@ function Home() {
           </div>
           {/* all books link */}
           <div className="text-center mt-10">
-            <Link to={'/books'} className='px-3 py-2 bg-blue-800'>Explore more...</Link>
+            <Link to={'/books'} className='px-3 py-2 bg-blue-800 text-white'>Explore more...</Link>
           </div>
         </section>
         {/* author */}

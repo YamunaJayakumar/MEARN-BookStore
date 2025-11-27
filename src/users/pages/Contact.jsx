@@ -25,12 +25,12 @@ function Contact() {
         <FaEnvelope className=' rounded-2xl p-2 text-4xl' style={{backgroundColor:' #D9D9D9'}}/>
         <p className='text-1xl'>sample@gmail.com</p>
       </div>
-   {/* form and map */}
     </div>
+    {/* form and map */}
     <div className="flex flex-col w-full mx-5  mb-7 md:grid md:grid-cols-2 md:gap-3 items-center">
       <div className="flex flex-col  items-center " >
         {/* form */}
-        <div className='px-6 py-8 rounded' style={{backgroundColor:' #D9D9D9'}}>
+        <div className='p-5 rounded' style={{backgroundColor:' #D9D9D9'}}>
           <h3 className="text-2xl text-black my-3 text-center">send me message</h3>
           <form className='flex flex-col gap-3 '>
             <input type="text" placeholder="username" className='w-100  border bg-white rounded py-1 border-white ' />
@@ -42,7 +42,7 @@ function Contact() {
       </div>
       {/* map */}
       <div className="flex items-center my-3 mx-4">
-        <img width={'600px'} src="/map.jpg" alt="" />
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3928.9836562525024!2d76.343474!3d10.018207!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080ffce877d5ef%3A0x8bef6870ad11b98!2sLuminar%20Technolab%20-%20Python%2C%20Data%20Science%2C%20AI%2C%20ASP.NET%2C%20Flutter%2C%20Software%20Testing%20Training%20Institute%20in%20Kochi!5e0!3m2!1sen!2sin!4v1764228791638!5m2!1sen!2sin" className='w-full' height="450" ></iframe>
       </div>
     </div>
    </div>

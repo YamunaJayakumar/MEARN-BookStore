@@ -10,14 +10,14 @@ function Footer() {
           <h4 className="text-2xl ">
             About Us
           </h4>
-          <p className='text-justify pe-10'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique itaque vitae ipsam amet vero placeat voluptatem nostrum sed! Sapiente ex quia enim ipsa voluptatem ratione cum ad nisi unde iure?
+          <p className='text-justify pe-10'>We’re a cozy, independent bookstore connecting readers with stories — new, used, and hard-to-find. Friendly staff, curated picks, and community events. Come browse.
           </p>
         </div>
         <div className="flex flex-col gap-3">
           <h4 className="text-2xl ">
             News Letter
           </h4>
-          <p className='text-justify pe-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit
+          <p className='text-justify pe-5'>Get first looks, new arrivals & events. Subscribe with your email.
           </p>
           <div className="flex justify-start items-center w-full">
             <input type="text" placeholder="Email ID" className='placeholder-gray-500 border bg-white w-75 py-2' />
@@ -37,7 +37,7 @@ function Footer() {
           </div>
         </div>
         </div>
-        <div className="text-justifymd:w-full flex  justify-center items-center bg-black text-white">
+        <div className="text-justify md:w-full flex  justify-center items-center bg-black text-white">
           <p>copyright &copy; 2025 All rights reserved | This website is made with luminar technolab</p>
         </div>
       
