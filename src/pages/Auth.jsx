@@ -1,67 +1,89 @@
 import React, { useState } from 'react'
 import { FaEye, FaEyeSlash, FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
 
-function Auth({insideRegister}) {
-  const[viewPassword,setViewPassword]=useState(false)
+function Auth({ insideRegister }) {
   
+  const [viewPassword, setViewPassword] = useState(false)
+  //store data from form
+  const [userDetails, SetUserDetails] = useState({
+    username: '',
+    email: '',
+    password: ''
+  })
+
+  console.log(userDetails)
+
+  const handleRegister=(e)=>{
+    //can handle real dom-like form buttons
+   e.preventDefault()
+    const {username,email,password}=userDetails
+    if(email && password && username){
+      toast.success('API CALL')
+    }
+    else{
+      toast.info("please fill teh form completely")
+    }
+  }
   return (
     <div className='w-full min-h-screen flex justify-center items-center flex-col bg-[url(/background-image.jpg)] bg-cover bg-center'>
       <div className="p-10">
         <h1 className="text-3xl font-bold text-white text-center">Book Store</h1>
-        <div style={{width:'400px'}} className="bg-black text-white p-5 flex flex-col justify-center items-center my-5">
-          <div style={{width:'100px',height:'100px',borderRadius:"50%"}} className="border mb-5 flex flex-col items-center justify-center">
-            <FaUser className='text-3xl'/>
+        <div style={{ width: '400px' }} className="bg-black text-white p-5 flex flex-col justify-center items-center my-5">
+          <div style={{ width: '100px', height: '100px', borderRadius: "50%" }} className="border mb-5 flex flex-col items-center justify-center">
+            <FaUser className='text-3xl' />
           </div>
-            <h2 className="text-2xl">{insideRegister?"register":"Login"}</h2>
-            <form className='w-full my-5'>
-              {/* username */}
-              {
-                insideRegister &&
-                <input type="text" placeholder='Username' className='bg-white text-black placeholder-gray-500 w-full p-2 rounded '/>
+          <h2 className="text-2xl">{insideRegister ? "register" : "Login"}</h2>
+          <form className='w-full my-5'>
+            {/* username */}
+            {
+              insideRegister &&
+              <input value={userDetails.username} onChange={(e) => SetUserDetails({ ...userDetails, username: e.target.value })} type="text" placeholder='Username' className='bg-white text-black placeholder-gray-500 w-full p-2 rounded ' />
+            }
+            {/* email */}
+            <input value={userDetails.email} onChange={(e) => SetUserDetails({ ...userDetails, email: e.target.value })} type="text" placeholder='Email-ID' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5' />
+            {/* password */}
+            <div className="flex items-center">
+              <input value={userDetails.password} onChange={(e) => SetUserDetails({ ...userDetails, password: e.target.value })} type={viewPassword ? "text" : 'password'} placeholder='Password' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded mb-5' />
+              {viewPassword ?
+                <FaEyeSlash onClick={() => setViewPassword(!viewPassword)} className='text-gray-400 cursor-pointer ' style={{ marginLeft: '-30px', marginTop: '-20px' }} />
+                : <FaEye onClick={() => setViewPassword(!viewPassword)} className='text-gray-400 cursor-pointer ' style={{ marginLeft: '-30px', marginTop: '-20px' }} />
               }
-              {/* email */}
-              <input type="text" placeholder='Email-ID' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded my-5'/>
-              {/* password */}
-              <div className="flex items-center">
-                 <input type={viewPassword?"text":'password'}placeholder='Password' className='bg-white text-black placeholder-gray-400 w-full p-2 rounded mb-5'/>
-                 {viewPassword ?
-                  <FaEyeSlash onClick={()=>setViewPassword(!viewPassword)} className='text-gray-400 cursor-pointer 'style={{marginLeft:'-30px',marginTop:'-20px'}}/>
-                 :<FaEye onClick={()=>setViewPassword(!viewPassword)} className='text-gray-400 cursor-pointer 'style={{marginLeft:'-30px',marginTop:'-20px'}}/>
-                 }
-                 
+
+            </div>
+            {/* forgot password */}
+            {
+              !insideRegister &&
+              <div className="flex justify-between mb-5">
+                <p className="text-xs text-orange-300">*Never share your password with others</p>
+                <button className='text-xs underline'>Forgot Password</button>
               </div>
-              {/* forgot password */}
+            }
+            {/* login/register btn */}
+            <div className=' text-center'>
               {
-                !insideRegister &&
-                <div className="flex justify-between mb-5">
-                  <p className="text-xs text-orange-300">*Never share your password with others</p>
-                  <button className='text-xs underline'>Forgot Password</button>
-                </div>
+                insideRegister ?
+                <button type='button' onClick={handleRegister} className="bg-green-700 w-full rounded p-2 ">Register</button>
+                  : <button type='button' className="bg-green-700 w-full rounded p-2  ">Login</button>
               }
-              {/* login/register btn */}
-              <div className=' text-center'>
-                {
-                  insideRegister ? 
-                  <button className="bg-green-700 w-full rounded p-2 ">Register</button>
-                  :<button className="bg-green-700 w-full rounded p-2  ">Login</button>
-                }
-              </div>
-              {/* google authentication */}
-             
-                <div className="my-5 text-center">
-                {
-                  insideRegister?
+            </div>
+            {/* google authentication */}
+
+            <div className="my-5 text-center">
+              {
+                insideRegister ?
                   <p className='text-blue-600'>Already a user ? <Link to={"/login"} className='underline ms-5'>Login</Link></p>
 
-                  :<p className='text-blue-600'>Are you a new user ? <Link to={"/register"} className='underline ms-5'>Register</Link></p>
+                  : <p className='text-blue-600'>Are you a new user ? <Link to={"/register"} className='underline ms-5'>Register</Link></p>
 
-                }
-              </div>  
-            </form>
-          
+              }
+            </div>
+          </form>
+
         </div>
       </div>
+      <ToastContainer position="top-center" autoClose={5000} theme="colored" />
     </div>
   )
 }
