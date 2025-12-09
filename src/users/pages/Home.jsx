@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../../components/Footer'
 import { FaSearch } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
 
 function Home() {
+  const navigate=useNavigate()
+  const [searchKey,setSearchKey]=useState("")
+  const handleSearch=()=>{
+    if(!searchKey){
+      toast.warning('fill the form completely')
+
+    }
+    else if(!sessionStorage.getItem("token")){
+      toast.warning("please login to search book")
+      setTimeout(()=>{
+        navigate('/login')
+      },2500)
+    }
+    else if(sessionStorage.getItem("token") && searchKey){
+      navigate('/books')
+    }
+    else{
+      toast.error("something went wrong")
+    }
+
+  }
   return (
     <div>
       <Header />
@@ -16,9 +38,9 @@ function Home() {
             <p>Gift your family and friend a book</p>
             {/* search */}
             <div className=" mt-5 flex ">
-              <input type="text" className='bg-white rounded-2xl text-black w-100 placeholder-gray-500 p-2' placeholder="search your book here" />
+              <input type="text" onChange={(e)=>setSearchKey(e.target.value)} className='bg-white rounded-2xl text-black w-100 placeholder-gray-500 p-2' placeholder="search your book here" />
               <button className='text-gray-500 my-auto' style={{ marginLeft: "-40px" }}>
-                <FaSearch />
+                <FaSearch onClick={handleSearch}/>
               </button>
             </div>
           </div>
@@ -103,7 +125,13 @@ function Home() {
           </div>
         </section>
       </div>
-      <Footer /></div>
+      <Footer />
+      {/* toast */}
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        theme="colored" />
+      </div>
   )
 }
 

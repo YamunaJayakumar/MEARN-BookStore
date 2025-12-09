@@ -1,3 +1,4 @@
+import axios from 'axios'
 //header handle media files
 const commonAPI=async(httpMethod,url,reqBody,reqHeader)=>{
     const reqConfig ={

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../../components/Footer'
 import { FaBars } from 'react-icons/fa'
@@ -7,12 +7,19 @@ import { Link } from 'react-router-dom'
 function Book() {
 
   const [showCategoryList, setShowCategoryList] = useState(false)
-
+  const[token,setToken]=useState("")
+  useEffect(()=>{
+     if(sessionStorage.getItem("token")){
+      const userToken=sessionStorage.getItem("token")
+      setToken(userToken)
+     }
+  },[])
   return (
     <>
       <Header />
       {/* login -book page */}
-      <>
+      {
+        token?<>
         {/* title and search book */}
         <div className="flex items-center flex-col justify-center my-5">
           {/* bookstore */}
@@ -91,8 +98,13 @@ function Book() {
             </div>
           </div>
         </div>
-      </>
-      {/* not login-book page */}
+      </>: <div className='flex items-center justify-center w-full h-screen flex-col'>
+        {/* not login-book page */}
+        <img className='w-50' src="https://cdn.dribbble.com/userupload/22975973/file/original-31a97aa6590226a507c0e5d66a45a9ea.gif" alt="" />
+        <p className="text-center text-xl font-bold my-15">Please <Link to={'/login'} className="underline text-blue-500">login</Link> to </p>
+      </div>
+      }
+      
       <Footer />
     </>
   )

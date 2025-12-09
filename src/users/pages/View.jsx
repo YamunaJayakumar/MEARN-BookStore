@@ -40,7 +40,7 @@ function View() {
           </div>
           <div className="flex justify-center md:justify-end  ">
             <Link to={'/books'} className='bg-blue-700 px-4 rounded text-white flex items-center'><FaBackward className='me-2'/>Back</Link>
-            <button className=' mx-2 bg-green-700 px-4 rounded text-white p-2 rounded'>Buy $ 13</button>
+            <button className=' mx-2 bg-green-700 px-4  text-white p-2 rounded'>Buy $ 13</button>
           </div>
         </div>
       </div>
